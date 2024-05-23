@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Forum</title>
+    <link rel="stylesheet" href="css/forum.css"> <!-- Ensure this points to your CSS file -->
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Welcome to My Forum</h1>
+            <h2>User: <%= username %></h2>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="/login">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <a href="/user/<%= userId %>" class="user-profile-link">
+        <div class="user-profile">
+            <img src="/pics/user.png" alt="User Profile Picture">
+            <p><%= username %></p>
+        </div>
+    </a>
+    
+    
+
+    <!-- Categories Section -->
+    <div class="category-container">
+        <h2>Forum Categories</h2>
+        <ul class="category-list">
+            <% categories.forEach(function(category) { %>
+                <li><a href="/category/<%= category.category_id %>"><%= category.name %></a><p><%= category.description %></p></li>
+            <% }); %>
+        </ul>
+        
+    </div>
+
+    <main>
+        <section class="welcome-section">
+            <h2>Welcome to Our Community</h2>
+            <p>Join our vibrant forum to discuss a wide range of topics. Whether you're interested in technology, science, art, music, or more, we have a place for you. Dive into discussions, share your knowledge, and connect with like-minded individuals.</p>
+        </section>
+        <!-- You can add more content sections here as needed -->
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Forum. All rights reserved.</p>
+    </footer>
+
+    <script src="/js/login.js"></script>
+</body>
+</html>

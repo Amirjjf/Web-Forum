@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .feedback {
+            color: red;
+            margin: 10px 0;
+        }
+    </style>
+    <script>
+        function changeEmail(button) {
+            button.disabled = true;
+            const profileDiv = document.querySelector('div[style="text-align: center;"]');
+            const instructionText = document.createElement('p');
+            instructionText.textContent = 'Please enter your new email twice for confirmation:';
+            const emailInput1 = document.createElement('input');
+            emailInput1.type = 'email';
+            emailInput1.id = 'newEmail1';
+            const emailInput2 = document.createElement('input');
+            emailInput2.type = 'email';
+            emailInput2.id = 'newEmail2';
+            const submitButton = document.createElement('button');
+            submitButton.textContent = 'Submit';
+            submitButton.onclick = submitEmailChange;
+            profileDiv.appendChild(instructionText);
+            profileDiv.appendChild(emailInput1);
+            profileDiv.appendChild(emailInput2);
+            profileDiv.appendChild(submitButton);
+        }
+
+        function submitEmailChange() {
+            const email1 = document.getElementById('newEmail1').value;
+            const email2 = document.getElementById('newEmail2').value;
+            if (email1 !== email2) {
+                alert('Emails do not match!');
+                return;
+            }
+
+            const emailRegex = /.+@.+/;
+            if (!emailRegex.test(email1)) {
+                alert('Invalid email format');
+                return;
+            }
+
+            fetch('/change-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: email1 })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Email changed successfully!');
+                    document.getElementById('newEmail1').value = '';
+                    document.getElementById('newEmail2').value = '';
+                } else {
+                    alert(data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        function changePassword(button) {
+            button.disabled = true;
+            const profileDiv = document.querySelector('div[style="text-align: center;"]');
+            const instructionText = document.createElement('p');
+            instructionText.textContent = 'Please enter your new password twice for confirmation:';
+            const passwordInput1 = document.createElement('input');
+            passwordInput1.type = 'password';
+            passwordInput1.id = 'newPassword1';
+            const passwordInput2 = document.createElement('input');
+            passwordInput2.type = 'password';
+            passwordInput2.id = 'newPassword2';
+            const submitButton = document.createElement('button');
+            submitButton.textContent = 'Submit';
+            submitButton.onclick = submitPasswordChange;
+            profileDiv.appendChild(instructionText);
+            profileDiv.appendChild(passwordInput1);
+            profileDiv.appendChild(passwordInput2);
+            profileDiv.appendChild(submitButton);
+        }
+        
+        function submitPasswordChange() {
+            const password1 = document.getElementById('newPassword1').value;
+            const password2 = document.getElementById('newPassword2').value;
+            if (password1 !== password2) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            if (!password1 || !password2) {
+                alert('Password fields cannot be empty!');
+                return;
+            }
+
+            fetch('/change-password', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ password: password1 })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Password changed successfully!');
+                    document.getElementById('newPassword1').value = '';
+                    document.getElementById('newPassword2').value = '';
+                } else {
+                    alert('There was an error changing your password.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <a href="/forum">Go to Forum</a>
+    </header>
+    <div style="text-align: center;">
+        <h1>
+            <% if (loggedInUserId == user.id) { %>
+                Welcome, <%= user.username %>
+            <% } else { %>
+                Welcome to <%= user.username %>'s profile
+            <% } %>
+        </h1>
+        <% if (user.id === loggedInUserId) { %>
+            <p>Email: <%= user.email %></p>
+        <% } %>
+        <p>Username: <%= user.username %></p>
+        <p>Joined: <%= new Date(user.register_date).toISOString().split('T')[0] %></p>
+
+        <% if (threads.length > 0) { %>
+            <h2>
+                <% if (loggedInUserId == user.id) { %>
+                    Threads created by you:
+                <% } else { %>
+                    Threads created by <%= user.username %>:
+                <% } %>
+            </h2>
+            <% threads.forEach(thread => { %>
+                <div>
+                    <a href="/thread/<%= thread.post_id %>" style="text-decoration: underline; color: blue;">
+                        <h3><%= thread.title %></h3>
+                        <p><%= thread.content %></p>
+                    </a>
+                </div>
+            <% }) %>
+        <% } %>
+
+        <% if (loggedInUserId == user.id) { %>
+            <button id="changeEmailButton" onclick="changeEmail(this)" style="margin-left: 10px;">Change Email</button>
+            <button id="changePasswordButton" onclick="changePassword(this)" style="margin-left: 10px;">Change Password</button>
+        <% } %>
+    </div>
+</body>
+</html>

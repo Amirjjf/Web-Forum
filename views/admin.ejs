@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="css/admin.css"> <!-- Ensure the CSS path is correct -->
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Admin Panel - Manage Categories</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/forum">Back to Forum</a></li>
+                <li><a href="/login">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h2>Manage Users</h2>
+    <table>
+    <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Actions</th>
+    </tr>
+    <% users.forEach(function(user) { %>
+        <tr>
+        <td><%= user.username %></td>
+        <td><%= user.email %></td>
+        <td><%= user.role %></td>
+        <td>
+            <!-- Edit User Button -->
+            <a href="/edit-user/<%= user.user_id %>" class="button">Edit</a>
+        </td>
+        </tr>
+    <% }); %>
+    </table>
+
+    
+    <div class="category-management">
+        <h2>Current Categories</h2>
+        <ul class="category-list">
+            <% categories.forEach(function(category) { %>
+                <li>
+                    <a href="#!"><%= category.name %></a>
+                    <p><%= category.description %></p>
+                    <!-- Button Group for Edit and Delete -->
+                    <div class="button-group">
+                        <a href="/edit-category/<%= category.category_id %>" class="button">Edit</a>
+                        <a href="/delete-category/<%= category.category_id %>" class="button" onclick="return confirm('Are you sure to delete this category?')">Delete</a>
+                    </div>
+                </li>
+            <% }); %>
+        </ul>
+        
+        
+        
+
+        <h2>Add New Category</h2>
+        <form action="/add-category" method="POST">
+            <input type="text" name="name" placeholder="Category Name" required>
+            <textarea name="description" placeholder="Description" required></textarea>
+            <button type="submit">Add Category</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 My Forum. All rights reserved.</p>
+    </footer>
+
+    <!-- <script src="/js/admin.js"></script> Optional: Add JS for additional functionalities -->
+</body>
+</html>

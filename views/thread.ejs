@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= thread.title %></title>
+    <link rel="stylesheet" href="/css/thread.css">
+</head>
+<body>
+    <header>
+        <a href="/category/<%= thread.category %>">Back to <%= category %></a>
+    </header>
+
+    <main>
+
+        <div class="section-top-right">
+            <button onclick="location.href='/user/<%= userId %>'">User Profile: <%= username %> </button>
+        </div>
+
+        <h1>Thread:</h1>
+        <div style="border: 1px solid #000; padding: 10px;">
+            <h2><%= thread.title %></h2>
+            <p><%= thread.text %></p>
+        </div>
+
+
+        <section>
+            <h3>Add Reply</h3>
+            <form action="/add-comment" method="POST">
+                <input type="hidden" name="post_id" value="<%= threadId %>">
+                <input type="text" name="body" placeholder="Enter your comment">
+                <input type="hidden" name="author" value="<%= userId %>">
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Comments:</h2>
+            <% comment.forEach(function(comment) { %>
+                <div style="border: 1px solid #000; padding: 10px; margin-bottom: 10px;">
+                    <p><strong>Author:</strong> <a href="/user/<%= comment.author %>"><%= comment.username %></a></p>
+                    <p><strong>Time Posted:</strong> <%= comment.time_posted %></p>
+                    <p><strong>Last Modified:</strong> <%= comment.last_modified %></p>
+                    <p><strong>Comment:</strong> <%= comment.body %></p>
+                </div>
+                <br> <!-- Add a blank row after each thread -->
+            <% }); %>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2022 Forum Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>

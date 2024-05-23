@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="css/login.css"> <!-- Ensure this points to your CSS file -->
+</head>
+<body>
+    <div class="center-box">
+        <!-- Back to Login Link -->
+        <a href="/login" class="back-to-login"><i class="fa-solid fa-left-long"></i></a>
+        <h1>Registration Form</h1>
+        <form method="post">
+            <input type="text" id="username" name="username" placeholder="Username" required><br><br>
+            
+            <input type="email" id="email" name="email" placeholder="Email" required><br><br>
+            
+            <input type="password" id="password" name="password" placeholder="Password" required><br><br>
+
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required><br><br>
+            
+            <input type="submit" value="Register">
+
+            <div id = "status"></div>
+        </form>
+    </div>
+    <!-- Linking external JavaScript file -->
+    <script src="https://kit.fontawesome.com/201304fec2.js" crossorigin="anonymous"></script>
+    <script src="js/register.js"></script>
+</body>
+</html>
