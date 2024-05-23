@@ -1,0 +1,191 @@
+/* Enhanced General Body Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4; /* Adjusted to softer background */
+    margin: 0; /* Removes default margin */
+}
+
+.section-top-right {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    background-image: url('/pics/background.png'); /* Ensure correct path */
+    background-size: cover; /* Ensures the background covers the header */
+    background-position: center; /* Centers the background image */
+    height: 50vh;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 0;
+    font-family: 'Georgia', serif;
+    position: relative; /* Needed for the ::before pseudo-element positioning */
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Adjust black overlay opacity as needed */
+    z-index: 0;
+}
+
+.header-content, nav {
+    z-index: 1; /* Ensures content and nav are above the overlay */
+    position: relative;
+}
+
+header h1 {
+    font-size: 4rem; /* Larger size for main title */
+    margin: 0; /* Ensures no extra space around the text */
+    margin-bottom: 10px; /* Adds space between title and subtitle */    
+}
+
+.user-profile-link {
+    text-decoration: none; /* Removes underline from links */
+    color: inherit; /* The link color will be the same as the parent element */
+}
+
+.user-profile {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    padding: 10px;
+    background: none;
+    border-radius: 5px;
+    text-align: center; /* Center the username text below the image */
+    cursor: pointer; /* Changes the mouse cursor to indicate the area is clickable */
+    box-shadow: none; /* Ensures no shadow is displayed */
+}
+
+.user-profile img {
+    max-width: 50px; /* Adjust based on your preference */
+    border-radius: 50%; /* Circular profile picture */
+    margin-bottom: 5px; /* Space between the image and the username */
+}
+
+.user-profile p {
+    color: white; /* Adjust based on your preference */
+    font-size: 16px; /* Adjust based on your preference */
+    margin: 0; /* Remove default margin */
+}
+
+
+/* Navigation Menu Improvements */
+nav {
+    width: 100%;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    padding: 0 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: border-bottom 0.2s ease-in-out; /* Smooth transition for hover effect */
+}
+
+nav a:hover {
+    border-bottom: 3px solid #fff; /* More pronounced hover effect */
+}
+
+/* Full-width Categories Container */
+.category-container {
+    width: 100%;
+    text-align: center;
+    background-color: #e0e0e0; /* Lightened for subtle contrast */
+    padding: 20px 0;
+    border-top: 5px solid #ccc; /* Add a border top for stylistic separation */
+    border-bottom: 5px solid #ccc;
+}
+
+.category-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.category-list li {
+    flex-basis: 20%;
+    min-width: 150px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Softened shadow */
+    border-radius: 5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for hover and click */
+}
+
+.category-list li:hover {
+    transform: scale(1.05); /* Enlarge on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* More pronounced shadow on hover */
+}
+
+.category-list li:active {
+    transform: scale(0.95); /* Simulate click effect by scaling down */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Adjust shadow for clicked state */
+}
+
+.category-list a {
+    display: block; /* Make the link cover the whole list item for easier clicking */
+    padding: 15px; /* Add padding for spacing */
+    color: #333; /* Dark color for contrast */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make the font bold */
+}
+
+.category-list p {
+    margin: 5px 0 0; /* Adjust margin for the paragraph for spacing */
+    color: #666; /* Lighter text color for descriptions */
+}
+
+/* Main Container Adjustments */
+.main-container {
+    display: flex;
+    flex-direction: column; /* Changes layout to vertical */
+    margin-top: 20px;
+}
+
+main {
+    flex: 1; /* Allows main content to grow and fill the space */
+    padding: 20px;
+    background: #fff; /* Consistent background with categories */
+}
+
+.welcome-section h2 {
+    color: #333;
+    font-size: 1.8rem;
+}
+
+/* Footer Styling Adjustments */
+footer {
+    background: #333; /* Darker for contrast */
+    color: #eee; /* Lighter text for readability */
+    text-align: center;
+    padding: 10px 0;
+}

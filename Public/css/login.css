@@ -1,0 +1,130 @@
+
+/* Enhanced style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(334deg, #7a9bf7, #9170e2, #e673c8, #e673c8, #9170e2, #7a9bf7);
+    background-size: 180% 180%;
+    background-attachment: fixed;
+    font-family: 'Arial', sans-serif;
+    animation: gradient-animation 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes gradient-animation {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.center-box {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 40%;
+    min-width: 320px;
+    text-align: center;
+}
+
+input[type="text"],
+input[type="password"], 
+input[type = "email"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 16px; /* Default font size */
+    transition: font-size 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="text"]:not(:placeholder-shown),
+input[type="password"]:not(:placeholder-shown),
+input[type="email"]:not(:placeholder-shown) {
+    font-size: 18px; 
+}
+
+input[type="submit"],
+button {
+    width: calc(100% - 20px);
+    padding: 12px 0;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #f6a, #f88, #fae, #f8a, #f6a); /* Updated gradient */
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.5s ease; /* Added transition for background-position */
+    background-size: 200% 100%; /* Adjusted for smoother transition */
+}
+
+input[type="submit"]:hover,
+button:hover {
+    transform: scale(1.05); /* More noticeable hover effect */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    background-position: 100% 0; /* Ensure smooth color transition */
+}
+
+input[type="submit"]:active,
+button:active {
+    transform: scale(0.98);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+label {
+    display: block;
+    margin-top: 20px;
+    color: #444;
+    font-size: 16px;
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+input[type="checkbox"] {
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+
+.back-to-login {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    display: inline-block;
+    margin-bottom: 20px; /* Adjust as needed */
+    color: #000000; /* Subtle color, adjust based on your design */
+    font-size: 40px; /* Matches the form's aesthetic */
+    text-decoration: none; /* Removes underline */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.back-to-login:hover {
+    color: #6c0071; /* Darker color on hover for visibility */
+}
+
+
+#status{
+    margin-top: 20px;
+    font-size: 16px;
+}

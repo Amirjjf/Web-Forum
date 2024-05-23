@@ -1,0 +1,64 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(334deg, #7a9bf7, #9170e2, #e673c8, #e673c8, #9170e2, #7a9bf7);
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.6); /* Slightly see-through */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 25%; /* Adjusted for a wider form */
+    max-width: 800px; /* Ensures the form does not become too wide on larger screens */
+    text-align: center;
+}
+
+.form-field {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #444;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #f9f9f9;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #f6a, #f88, #fae);
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.3s ease;
+    background-size: 200% 100%; /* Prepared for background-position change on hover */
+}
+
+button:hover {
+    transform: scale(1.05); /* More noticeable hover effect */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    background-position: 100% 0; /* Smooth color transition */
+}
+
+button:active {
+    transform: scale(0.98);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}

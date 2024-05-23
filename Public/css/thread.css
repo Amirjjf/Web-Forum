@@ -1,0 +1,111 @@
+
+    /* General resets */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f7f6;
+        color: #333;
+        line-height: 1.6;
+        padding: 20px;
+    }
+
+    header {
+        background-color: #0077b6;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    header a {
+        color: #ade8f4;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .section-top-right {
+        position: fixed;
+        top: 30px;
+        right: 30px;
+        padding: 10px;
+        background: #00b4d8;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .section-top-right button {
+        border: none;
+        background: none;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    main {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2, h3 {
+        color: #0077b6;
+    }
+
+    div {
+        margin-bottom: 20px;
+    }
+
+    form {
+        background: #e9ecef;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    input[type="text"], button[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        border: 1px solid #ced4da;
+    }
+
+    button[type="submit"] {
+        background-color: #007BFF;
+        color: white;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    footer {
+        text-align: center;
+        margin-top: 40px;
+        padding: 20px;
+        background: #023e8a;
+        color: white;
+        border-radius: 8px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        main {
+            margin: 20px;
+            padding: 15px;
+        }
+
+        .section-top-right {
+            top: 10px;
+            right: 10px;
+        }
+    }
+

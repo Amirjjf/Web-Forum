@@ -1,0 +1,232 @@
+/* Enhanced General Body Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+.section-top-right {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+header {
+    background-image: url('/pics/background.png'); /* Ensure correct path */
+    background-size: cover; /* Ensures the background covers the header */
+    background-position: center; /* Centers the background image */
+    height: 50vh;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 0;
+    font-family: 'Georgia', serif;
+    position: relative; /* Needed for the ::before pseudo-element positioning */
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Adjust black overlay opacity as needed */
+    z-index: 0;
+}
+
+
+.header-content, nav {
+    z-index: 1;
+    position: relative;
+}
+
+header h1 {
+    font-size: 4rem;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+nav {
+    width: 100%;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    padding: 0 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: #ccc;
+}
+
+/* Table Styling Adjustments */
+table {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:nth-child(odd) {
+    background-color: #e7e7e7;
+}
+
+table th, table td {
+    padding: 12px;
+    border: 1px solid #00000023;
+    text-align: center;
+}
+
+table th {
+    background-color: #4CAF50;
+    color: white;
+}
+/* Category List Adjustments */
+.category-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.category-list li {
+    position: relative; /* Updated positioning context for button placement */
+    flex-basis: 20%;
+    min-width: 150px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.category-list li .button-group {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+
+
+.category-list li:hover {
+    transform: scale(1.05); /* Enlarge on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* More pronounced shadow on hover */
+}
+
+.category-list li:active {
+    transform: scale(0.95); /* Simulate click effect by scaling down */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Adjust shadow for clicked state */
+}
+
+.category-list a {
+    display: block; /* Make the link cover the whole list item for easier clicking */
+    padding: 15px; /* Add padding for spacing */
+    color: #333; /* Dark color for contrast */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make the font bold */
+}
+
+.category-list p {
+    margin: 5px 0 0; /* Adjust margin for the paragraph for spacing */
+    color: #666; /* Lighter text color for descriptions */
+}
+
+
+h2 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+
+.category-list .button {
+    padding: 5px 10px;
+    margin-left: 5px;
+    background-color: #f0f0f0;
+    color: #333;
+    font-weight: 500;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none; /* Removes underline */
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.category-list .button:hover {
+    background-color: #e0e0e0;
+    color: #000;
+}
+
+/* Enhanced Form Styling for Adding New Categories */
+.category-management form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.category-management form input, .category-management form textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.category-management form button {
+    width: 85%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.category-management form button:hover {
+    background-color: #45a049;
+}
+
+/* Footer Adjustments */
+footer {
+    background: #333;
+    color: #eee;
+    text-align: center;
+    padding: 10px 0;
+}

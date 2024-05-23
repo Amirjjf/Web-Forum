@@ -1,0 +1,165 @@
+/* Reset margins and padding for a consistent look */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+header {
+    background-size: cover; /* Ensures the background covers the header */
+    background-position: center; /* Centers the background image */
+    height: 70vh;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 0;
+    position: relative; /* Needed for the ::before pseudo-element positioning */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Improves legibility of text on varied backgrounds */
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay on the entire header */
+    z-index: 0;
+}
+
+header a, header h1 {
+    position: relative;
+    z-index: 1; /* Ensures text appears above the overlay */
+}
+
+header h1 {
+    font-size: 6.5em; 
+    margin: 4px 0; 
+    color: white;
+}
+header a {
+    font-size: 1.2em; 
+}
+
+header h2 {
+    font-size: 2.75em; 
+    margin: 0.2em 0; 
+    color: #00fffb;
+}
+
+/* (The rest of your CSS remains unchanged) */
+
+
+.main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.section-top-right {
+    position: fixed; /* Change from absolute to fixed for better accessibility */
+    top: 30px;
+    right: 30px;
+    padding: 10px;
+    background: #00b4d8;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.section-top-right button {
+    border: none;
+    background: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+h1, h2 {
+    color: #0077b6;
+}
+
+h2 {
+    border-bottom: 2px solid #00b4d8;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 4px;
+    font-size: 0.8em;
+    padding: 2px 6px;
+    margin: 0 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+form {
+    background: #e9ecef;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input[type="text"],
+textarea,
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    background: #023e8a;
+    color: white;
+    border-radius: 8px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .section-top-right {
+        top: 10px;
+        right: 10px;
+    }
+
+    .main {
+        margin: 10px;
+    }
+}
